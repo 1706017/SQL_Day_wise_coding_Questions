@@ -1,0 +1,69 @@
+SQL Interview Questions Day1
+Date: 20th October 2024 
+=============================
+
+Q1)
+Scenario 1:
+
+Table1 Table2 
+ 1       1
+ 1       1
+ 1       2
+ 2       2
+ 3       4
+ 3       null
+ 3
+
+ a) Find Number of records after inner Join?
+ -> 8 records will be returned which are matching in both the tables
+
+ b) Find Number of records after doing left join?
+
+ -> inner join + non matching record from left table 
+
+ -> 8 + 3 => 11 records
+
+ c) Find Number of records after doing right join ?
+
+ -> inner join + non matching records from right table 
+
+ -> 08 + 02 => 10 records
+
+ d) Find number of records after doing full outer join?
+
+ -> inner join + left join + right join 
+
+ -> 08 + 03 + 02 => 13 records
+
+ e) Find number of records after doing cross joins?
+
+ -> so it is just like cartesian product 
+
+ -> no of records = no of records from left table * no of records from right table
+  => 7 * 6 => 42 records
+
+Scenario 2:
+
+Table1  Table2
+ 1        1
+ 1        1
+ 1        1
+ 1        2
+ 1        null
+ null
+ null
+
+ q1) Find Number of records after doing inner join ?
+
+ -> matching records from both the tables 
+ -> 15 
+ -> null will not be treated as matching records because two null values can never be treted as same 
+
+q2) Find Number of records after doing left join ?
+
+-> inner join + non matching records from left table 
+-> 15 + 02 => 17 records
+
+
+
+
