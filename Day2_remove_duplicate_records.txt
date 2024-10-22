@@ -1,0 +1,32 @@
+Question 2) To remove duplicate records from cars table based on some column named brand, model
+
+Car table:
+
+ (Id, brand, model,color,price)
+  1  Hyundai 102a  green  12000
+  2  TATA    102BC green  10000
+  3  TATA    102BC white  10002
+  4  Suzuki  101bv grey   98989
+  5  Suzuki  101bv yellow 98787
+
+Solution 1)
+
+Delete from car 
+Where id in (
+             Select max(id) 
+             From car
+             Group by brand, model
+             Having count(*) > 1;
+            )
+
+Solution 2) using window function row_number()
+
+Delete from car
+Where id in (
+Select id from(
+  Select *
+  ,row_number() over(partition by model,brand) as rn
+  From car
+  ) x
+Where x.rn>1;
+)
