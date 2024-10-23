@@ -1,0 +1,20 @@
+SQL Interview Questions Day3
+Date: 23rd October 
+=============================
+
+Question 3) To find those players who only won gold medals in different events and also find the count of gold medal won by that player
+
+
+Events (id ,event_name,gold,silver,bronze)
+
+1,100m,Amrit,Aman,Kunal
+2,200m,Amrit,AAyush,Nasim
+3,300m,Kunal,khemu,ali
+4,500m,sundaram,ali,sajan
+5,700m,Aayush,khemu,Nasim
+6,900,Nasim,Khan,ali
+
+Select gold as gold_won_player_name,count(1) as number_of_gold_medals
+From events
+Where gold not in (select silver from events union all select bronze from events)
+Group by gold;
